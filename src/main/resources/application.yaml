@@ -1,0 +1,24 @@
+server:
+  port: 9004
+  ip: 192.168.29.226
+
+spring:
+  application:
+    name: NOTIFICATION-SERVICE
+  kafka:
+    bootstrap-servers: ${server.ip}:9092
+    consumer:
+      group-id: ms-notification
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://${server.ip}:8761/eureka/
+  instance:
+    hostname: ${server.ip}
+    prefer-ip-address: true
