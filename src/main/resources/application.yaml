@@ -2,7 +2,7 @@ server:
   port: 9004
 
 custom:
-  server-ip: 127.0.0.1
+  server-ip: 192.168.29.226
 
 spring:
   application:
