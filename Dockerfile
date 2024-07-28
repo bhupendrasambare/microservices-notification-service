@@ -11,4 +11,4 @@ COPY target/*.jar app.jar
 EXPOSE 9004
 
 # Specify the command to run your application
-CMD ["java", "-jar", "app.jar"]
+CMD ["java", "-jar", "app.jar", "--custom.server-ip=${CUSTOM_SERVER_IP}"]
