@@ -27,7 +27,7 @@ public class SwaggerConfig {
         contact.setUrl("https://bhupendrasambare.github.io/profile");
 
         Info info = new Info()
-                .title("Authentication service API")
+                .title("Notification service API")
                 .version("1.0")
                 .contact(contact)
                 .description("This API exposes endpoints to manage tutorials.");
