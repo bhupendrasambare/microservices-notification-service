@@ -24,3 +24,18 @@ eureka:
   instance:
     hostname: ${custom.server-ip}
     prefer-ip-address: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    info:
+      enabled: true
+    metrics:
+      enabled: true
+    env:
+      enabled: true
