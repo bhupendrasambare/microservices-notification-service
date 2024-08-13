@@ -5,6 +5,8 @@ custom:
   server-ip: localhost
 
 spring:
+  config:
+    import: "configserver:http://${custom.server-ip}:9005"
   application:
     name: NOTIFICATION-SERVICE
   kafka:
