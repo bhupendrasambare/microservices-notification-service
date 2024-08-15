@@ -9,6 +9,13 @@ spring:
     import: "optional:configserver:http://${custom.server-ip}:9005"
   application:
     name: NOTIFICATION-SERVICE
+  boot:
+    admin:
+      client:
+        url: http://${custom.server-ip}:8762
+        instance:
+          service-base-url: http://127.0.0.1:${server.port}
+          name: ${spring.application.name}
   kafka:
     bootstrap-servers: ${custom.server-ip}:9092
     consumer:
