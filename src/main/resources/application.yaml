@@ -26,6 +26,7 @@ eureka:
   instance:
     hostname: ${custom.server-ip}
     prefer-ip-address: true
+    ip-address: ${custom.server-ip}
 
 management:
   endpoints:
