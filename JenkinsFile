@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     environment {
+        JAVA_HOME = "/Users/bhupendrasam1404/Library/Java/JavaVirtualMachines/jdk-22.0.1.jdk/Contents/Home"
         DOCKER_IMAGE = "bhupendra1404/microservice:ms-notification"
         CONTAINER_NAME = "ms-notification"
         DOCKER_PATH = '/usr/local/bin/docker'
@@ -13,20 +14,20 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/bhupendrasambare/microservices-notification-service'
+                git branch: 'main', url: 'https://github.com/bhupendrasambare/microservices-notification-service.git'
             }
         }
 
         stage('Build JAR') {
             steps {
-                sh "${MAVEN_PATH} clean package -DskipTests -Dcustom.server-ip=127.0.0.1"
+                sh "${MAVEN_PATH} clean package -DskipTests -Dcustom.server-ip=192.168.29.226"
             }
         }
 
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh "${DOCKER_PATH} build --pull=false --progress=plain -t ${DOCKER_IMAGE} ."
+                    sh "${DOCKER_PATH} build --no-cache -t ${DOCKER_IMAGE} ."
                 }
             }
         }
@@ -44,6 +45,15 @@ pipeline {
                     sh """
                     ${DOCKER_PATH} run -i -p 9004:9004 -d --name ${CONTAINER_NAME} -e CUSTOM_SERVER_IP=${CUSTOM_SERVER_IP}  ${DOCKER_IMAGE}
                     """
+                }
+            }
+        }
+
+        stage('Clean Up Docker Images') {
+            steps {
+                script {
+                    // Remove all dangling images
+                    sh "${DOCKER_PATH} image prune -f"
                 }
             }
         }
