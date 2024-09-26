@@ -12,7 +12,6 @@ spring:
   boot:
     admin:
       client:
-        url: http://${custom.server-ip}:8762
         instance:
           service-base-url: http://${custom.server-ip}:${server.port}
           name: ${spring.application.name}
