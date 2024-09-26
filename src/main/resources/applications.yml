@@ -1,1 +1,3 @@
-spring.kafka.bootstrap-servers=${custom.server-ip}:9092
+spring:
+    kafka:
+        bootstrap-servers: ${custom.server-ip}:9092
