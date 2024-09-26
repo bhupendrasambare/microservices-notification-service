@@ -1,3 +1,0 @@
-spring:
-    kafka:
-        bootstrap-servers: ${custom.server-ip}:9092

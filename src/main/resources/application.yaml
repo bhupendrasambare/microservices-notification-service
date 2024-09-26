@@ -16,6 +16,7 @@ spring:
           service-base-url: http://${custom.server-ip}:${server.port}
           name: ${spring.application.name}
   kafka:
+    bootstrap-servers: ${custom.server-ip}:9092
     consumer:
       group-id: ms-notification
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
