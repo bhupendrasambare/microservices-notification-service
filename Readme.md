@@ -9,7 +9,7 @@ This repository contains the source code for a Notification Service built using 
 
 ## Technologies Used
 
-- **Java 17**
+- **Java 22**
 - **Spring Boot**
 - **Spring Cloud 2022.0.5**
 - **Apache Kafka**
@@ -20,7 +20,7 @@ This repository contains the source code for a Notification Service built using 
 
 ### Prerequisites
 
-- Java 17
+- Java 22
 - Apache kafka PORT:9092
 - Microservices registry [Github Porject](https://github.com/bhupendrasambare/microservices-registry)
 - Docker
